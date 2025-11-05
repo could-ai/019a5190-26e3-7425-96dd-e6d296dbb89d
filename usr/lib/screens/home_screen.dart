@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:couldai_user_app/screens/calls_screen.dart";
+import "package:couldai_user_app/screens/camera_screen.dart";
 import "package:couldai_user_app/screens/chats_screen.dart";
 import "package:couldai_user_app/screens/status_screen.dart";
 
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this, initialIndex: 0);
+    _tabController = TabController(length: 4, vsync: this, initialIndex: 1);
   }
 
   @override
@@ -31,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen>
           controller: _tabController,
           indicatorColor: Colors.white,
           tabs: const <Widget>[
+            Tab(icon: Icon(Icons.camera_alt)),
             Tab(text: "CHATS"),
             Tab(text: "STATUS"),
             Tab(text: "CALLS"),
@@ -47,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen>
       body: TabBarView(
         controller: _tabController,
         children: const <Widget>[
+          CameraScreen(),
           ChatsScreen(),
           StatusScreen(),
           CallsScreen(),
